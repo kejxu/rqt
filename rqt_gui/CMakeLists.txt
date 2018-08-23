@@ -11,3 +11,7 @@ install(PROGRAMS bin/rqt_gui
 install(FILES resource/rqt.png
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/resource
 )
+
+if (WIN32)
+  add_windows_python_exe_helper(rqt)
+endif()
