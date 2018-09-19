@@ -23,8 +23,9 @@ set(rqt_gui_cpp_HDRS
 
 qt5_wrap_cpp(rqt_gui_cpp_MOCS ${rqt_gui_cpp_HDRS})
 
-add_library(${PROJECT_NAME} STATIC ${rqt_gui_cpp_SRCS} ${rqt_gui_cpp_MOCS})
+add_library(${PROJECT_NAME} ${rqt_gui_cpp_SRCS} ${rqt_gui_cpp_MOCS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} Qt5::Widgets)
+set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 if(APPLE) 
   set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
